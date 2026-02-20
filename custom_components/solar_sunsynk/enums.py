@@ -99,3 +99,40 @@ class SunsynkNames(str, Enum):
     # Inverter Status
     InverterStatus = "Inverter Status"
     GatewayStatus = "Gateway Status"
+    # Cap settings (SOC % per time slot)
+    Cap1 = "Setting Cap 1"
+    Cap2 = "Setting Cap 2"
+    Cap3 = "Setting Cap 3"
+    Cap4 = "Setting Cap 4"
+    Cap5 = "Setting Cap 5"
+    Cap6 = "Setting Cap 6"
+    # Energy mode
+    EnergyMode = "Setting Energy Mode"
+    # Sell times
+    SellTime1 = "Setting Sell Time 1"
+    SellTime2 = "Setting Sell Time 2"
+    SellTime3 = "Setting Sell Time 3"
+    SellTime4 = "Setting Sell Time 4"
+    SellTime5 = "Setting Sell Time 5"
+    SellTime6 = "Setting Sell Time 6"
+    # Time on/off
+    Time1on = "Setting Time 1 On"
+    Time2on = "Setting Time 2 On"
+    Time3on = "Setting Time 3 On"
+    Time4on = "Setting Time 4 On"
+    Time5on = "Setting Time 5 On"
+    Time6on = "Setting Time 6 On"
+    # Generator time on/off
+    GenTime1on = "Setting Gen Time 1 On"
+    GenTime2on = "Setting Gen Time 2 On"
+    GenTime3on = "Setting Gen Time 3 On"
+    GenTime4on = "Setting Gen Time 4 On"
+    GenTime5on = "Setting Gen Time 5 On"
+    GenTime6on = "Setting Gen Time 6 On"
+    # Sell time PAC
+    SellTime1Pac = "Setting Sell Time 1 PAC"
+    SellTime2Pac = "Setting Sell Time 2 PAC"
+    SellTime3Pac = "Setting Sell Time 3 PAC"
+    SellTime4Pac = "Setting Sell Time 4 PAC"
+    SellTime5Pac = "Setting Sell Time 5 PAC"
+    SellTime6Pac = "Setting Sell Time 6 PAC"
