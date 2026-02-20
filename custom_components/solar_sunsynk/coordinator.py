@@ -159,7 +159,6 @@ class SunsynkDataUpdateCoordinator(DataUpdateCoordinator):
                 )
 
                 gateway_vo: Dict[str, Any] = inverter_data.get("gatewayVO") or {}
-                acdc: Dict[str, Any] = inverter_realtime_data.get("acdc") or {}
 
                 sunsynk_data: Dict[str, Any] = {
                     "Model": inverter_data.get("model") or inverter_data.get("brand", ""),
@@ -281,9 +280,6 @@ class SunsynkDataUpdateCoordinator(DataUpdateCoordinator):
                     SunsynkNames.SellTime4Pac.value: inverter_settings_data.get("sellTime4Pac"),
                     SunsynkNames.SellTime5Pac.value: inverter_settings_data.get("sellTime5Pac"),
                     SunsynkNames.SellTime6Pac.value: inverter_settings_data.get("sellTime6Pac"),
-                    # --- Temperatures ---
-                    SunsynkNames.TempAC.value: _to_float(acdc.get("actemp")),
-                    SunsynkNames.TempDC.value: _to_float(acdc.get("dctemp")),
                 }
 
                 data[plant_sn_id] = sunsynk_data
