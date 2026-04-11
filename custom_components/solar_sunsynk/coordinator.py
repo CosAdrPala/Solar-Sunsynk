@@ -244,42 +244,17 @@ class SunsynkDataUpdateCoordinator(DataUpdateCoordinator):
                     SunsynkNames.InverterStatus.value: _to_float(inverter_data.get("status")),
                     SunsynkNames.GatewayStatus.value: _to_float(gateway_vo.get("status")),
                     # --- Cap settings (SOC % per time slot) ---
-                    SunsynkNames.Cap1.value: _to_float(inverter_settings_data.get("cap1")),
-                    SunsynkNames.Cap2.value: _to_float(inverter_settings_data.get("cap2")),
-                    SunsynkNames.Cap3.value: _to_float(inverter_settings_data.get("cap3")),
-                    SunsynkNames.Cap4.value: _to_float(inverter_settings_data.get("cap4")),
-                    SunsynkNames.Cap5.value: _to_float(inverter_settings_data.get("cap5")),
-                    SunsynkNames.Cap6.value: _to_float(inverter_settings_data.get("cap6")),
+                    **{SunsynkNames[f"Cap{i}"].value: _to_float(inverter_settings_data.get(f"cap{i}")) for i in range(1, 7)},
                     # --- Energy mode ---
                     SunsynkNames.EnergyMode.value: _to_float(inverter_settings_data.get("energyMode")),
                     # --- Sell times (raw time strings e.g. "06:00") ---
-                    SunsynkNames.SellTime1.value: inverter_settings_data.get("sellTime1"),
-                    SunsynkNames.SellTime2.value: inverter_settings_data.get("sellTime2"),
-                    SunsynkNames.SellTime3.value: inverter_settings_data.get("sellTime3"),
-                    SunsynkNames.SellTime4.value: inverter_settings_data.get("sellTime4"),
-                    SunsynkNames.SellTime5.value: inverter_settings_data.get("sellTime5"),
-                    SunsynkNames.SellTime6.value: inverter_settings_data.get("sellTime6"),
+                    **{SunsynkNames[f"SellTime{i}"].value: inverter_settings_data.get(f"sellTime{i}") for i in range(1, 7)},
                     # --- Time on/off ---
-                    SunsynkNames.Time1on.value: inverter_settings_data.get("time1on"),
-                    SunsynkNames.Time2on.value: inverter_settings_data.get("time2on"),
-                    SunsynkNames.Time3on.value: inverter_settings_data.get("time3on"),
-                    SunsynkNames.Time4on.value: inverter_settings_data.get("time4on"),
-                    SunsynkNames.Time5on.value: inverter_settings_data.get("time5on"),
-                    SunsynkNames.Time6on.value: inverter_settings_data.get("time6on"),
+                    **{SunsynkNames[f"Time{i}on"].value: inverter_settings_data.get(f"time{i}on") for i in range(1, 7)},
                     # --- Generator time on/off ---
-                    SunsynkNames.GenTime1on.value: inverter_settings_data.get("genTime1on"),
-                    SunsynkNames.GenTime2on.value: inverter_settings_data.get("genTime2on"),
-                    SunsynkNames.GenTime3on.value: inverter_settings_data.get("genTime3on"),
-                    SunsynkNames.GenTime4on.value: inverter_settings_data.get("genTime4on"),
-                    SunsynkNames.GenTime5on.value: inverter_settings_data.get("genTime5on"),
-                    SunsynkNames.GenTime6on.value: inverter_settings_data.get("genTime6on"),
+                    **{SunsynkNames[f"GenTime{i}on"].value: inverter_settings_data.get(f"genTime{i}on") for i in range(1, 7)},
                     # --- Sell time PAC ---
-                    SunsynkNames.SellTime1Pac.value: inverter_settings_data.get("sellTime1Pac"),
-                    SunsynkNames.SellTime2Pac.value: inverter_settings_data.get("sellTime2Pac"),
-                    SunsynkNames.SellTime3Pac.value: inverter_settings_data.get("sellTime3Pac"),
-                    SunsynkNames.SellTime4Pac.value: inverter_settings_data.get("sellTime4Pac"),
-                    SunsynkNames.SellTime5Pac.value: inverter_settings_data.get("sellTime5Pac"),
-                    SunsynkNames.SellTime6Pac.value: inverter_settings_data.get("sellTime6Pac"),
+                    **{SunsynkNames[f"SellTime{i}Pac"].value: inverter_settings_data.get(f"sellTime{i}Pac") for i in range(1, 7)},
                 }
 
                 data[plant_sn_id] = sunsynk_data

@@ -554,48 +554,19 @@ SENSOR_DESCRIPTIONS: List[SunsynkSensorDescription] = [
         state_class=SensorStateClass.MEASUREMENT,
     ),
     # --- Cap settings (SOC % per time slot) ---
-    SunsynkSensorDescription(
-        key=SunsynkNames.Cap1,
-        name=SunsynkNames.Cap1.value,
-        native_unit_of_measurement=PERCENTAGE,
-        device_class=SensorDeviceClass.BATTERY,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Cap2,
-        name=SunsynkNames.Cap2.value,
-        native_unit_of_measurement=PERCENTAGE,
-        device_class=SensorDeviceClass.BATTERY,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Cap3,
-        name=SunsynkNames.Cap3.value,
-        native_unit_of_measurement=PERCENTAGE,
-        device_class=SensorDeviceClass.BATTERY,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Cap4,
-        name=SunsynkNames.Cap4.value,
-        native_unit_of_measurement=PERCENTAGE,
-        device_class=SensorDeviceClass.BATTERY,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Cap5,
-        name=SunsynkNames.Cap5.value,
-        native_unit_of_measurement=PERCENTAGE,
-        device_class=SensorDeviceClass.BATTERY,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Cap6,
-        name=SunsynkNames.Cap6.value,
-        native_unit_of_measurement=PERCENTAGE,
-        device_class=SensorDeviceClass.BATTERY,
-        state_class=SensorStateClass.MEASUREMENT,
-    ),
+    *[
+        SunsynkSensorDescription(
+            key=key,
+            name=key.value,
+            native_unit_of_measurement=PERCENTAGE,
+            device_class=SensorDeviceClass.BATTERY,
+            state_class=SensorStateClass.MEASUREMENT,
+        )
+        for key in [
+            SunsynkNames.Cap1, SunsynkNames.Cap2, SunsynkNames.Cap3,
+            SunsynkNames.Cap4, SunsynkNames.Cap5, SunsynkNames.Cap6,
+        ]
+    ],
     # --- Energy mode ---
     SunsynkSensorDescription(
         key=SunsynkNames.EnergyMode,
@@ -604,178 +575,26 @@ SENSOR_DESCRIPTIONS: List[SunsynkSensorDescription] = [
         device_class=None,
         state_class=SensorStateClass.MEASUREMENT,
     ),
-    # --- Sell times (string, e.g. "06:00") ---
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime1,
-        name=SunsynkNames.SellTime1.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime2,
-        name=SunsynkNames.SellTime2.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime3,
-        name=SunsynkNames.SellTime3.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime4,
-        name=SunsynkNames.SellTime4.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime5,
-        name=SunsynkNames.SellTime5.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime6,
-        name=SunsynkNames.SellTime6.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    # --- Time on/off (boolean) ---
-    SunsynkSensorDescription(
-        key=SunsynkNames.Time1on,
-        name=SunsynkNames.Time1on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Time2on,
-        name=SunsynkNames.Time2on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Time3on,
-        name=SunsynkNames.Time3on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Time4on,
-        name=SunsynkNames.Time4on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Time5on,
-        name=SunsynkNames.Time5on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.Time6on,
-        name=SunsynkNames.Time6on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    # --- Generator time on/off (boolean) ---
-    SunsynkSensorDescription(
-        key=SunsynkNames.GenTime1on,
-        name=SunsynkNames.GenTime1on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.GenTime2on,
-        name=SunsynkNames.GenTime2on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.GenTime3on,
-        name=SunsynkNames.GenTime3on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.GenTime4on,
-        name=SunsynkNames.GenTime4on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.GenTime5on,
-        name=SunsynkNames.GenTime5on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.GenTime6on,
-        name=SunsynkNames.GenTime6on.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    # --- Sell time PAC (boolean) ---
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime1Pac,
-        name=SunsynkNames.SellTime1Pac.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime2Pac,
-        name=SunsynkNames.SellTime2Pac.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime3Pac,
-        name=SunsynkNames.SellTime3Pac.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime4Pac,
-        name=SunsynkNames.SellTime4Pac.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime5Pac,
-        name=SunsynkNames.SellTime5Pac.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
-    SunsynkSensorDescription(
-        key=SunsynkNames.SellTime6Pac,
-        name=SunsynkNames.SellTime6Pac.value,
-        native_unit_of_measurement=None,
-        device_class=None,
-        state_class=None,
-    ),
+    # --- Settings: sell times, time slots, generator slots, PAC flags ---
+    *[
+        SunsynkSensorDescription(
+            key=key,
+            name=key.value,
+            native_unit_of_measurement=None,
+            device_class=None,
+            state_class=None,
+        )
+        for key in [
+            SunsynkNames.SellTime1, SunsynkNames.SellTime2, SunsynkNames.SellTime3,
+            SunsynkNames.SellTime4, SunsynkNames.SellTime5, SunsynkNames.SellTime6,
+            SunsynkNames.Time1on, SunsynkNames.Time2on, SunsynkNames.Time3on,
+            SunsynkNames.Time4on, SunsynkNames.Time5on, SunsynkNames.Time6on,
+            SunsynkNames.GenTime1on, SunsynkNames.GenTime2on, SunsynkNames.GenTime3on,
+            SunsynkNames.GenTime4on, SunsynkNames.GenTime5on, SunsynkNames.GenTime6on,
+            SunsynkNames.SellTime1Pac, SunsynkNames.SellTime2Pac, SunsynkNames.SellTime3Pac,
+            SunsynkNames.SellTime4Pac, SunsynkNames.SellTime5Pac, SunsynkNames.SellTime6Pac,
+        ]
+    ],
 ]
 
 
